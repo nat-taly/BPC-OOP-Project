@@ -1,2 +1,2 @@
-# BPC-OOP-Project
+# BPC OOP Project
 Project in subject OOP (Web app)
