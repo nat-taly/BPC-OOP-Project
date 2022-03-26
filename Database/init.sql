@@ -14,16 +14,17 @@ CREATE TABLE Unit(
 );
 
 CREATE TABLE Items(
-    Id INT(6) AUTO_INCREMENT NOT NULL,
+    Id INT NOT NULL AUTO_INCREMENT,
     ItemName varchar(45) NOT NULL UNIQUE,
-    Count INT(6),
+    Count INT NOT NULL,
     Value varchar(45) NOT NULL,
     Comment varchar(100),
 
-    TypeID INT(6) NOT NULL,
-    UnitID INT(6) NOT NULL,
+    TypeID INT NOT NULL,
+    UnitID INT NOT NULL,
 
 	  PRIMARY KEY(Id),
+
     FOREIGN KEY (TypeID) REFERENCES ItemsType(Id),
     FOREIGN KEY (UnitID) REFERENCES Unit(Id)
 );

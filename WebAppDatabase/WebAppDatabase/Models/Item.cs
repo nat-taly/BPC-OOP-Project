@@ -11,38 +11,24 @@ namespace WebAppDatabase.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [MaxLength(50)]
+        [Required]
         public string ItemName { get; set; }
+
         public int Count { get; set; }
+
+        [MaxLength(10)]
         public string Value { get; set; }
+
+        [MaxLength(100)]
         public string Comment { get; set; }
 
-       
-        public int TypeID { get; set; }
+
+        public int TypeID { get; }
+        public int UnitID { get; }
         public ItemsType ItemsType { get; set; }
-        public int UnitID { get; set; }
         public Unit Unit { get; set; }
 
-        /*
-        [ForeignKey("TypeID")]
-        [NotMapped]
-        public virtual string TypeName { get; set; }
-        //public string TypeID { get; set; }
-
-        [ForeignKey("UnitName")]
-        public string UnitID { get; set; }
-        */
-
-        /*
-        public Item(int Id, string ItemName, int Count, string Value, string Comment, string ItemType, string Unit)
-        {
-            this.Id = Id;
-            this.ItemName = ItemName;
-            this.Count = Count;
-            this.Comment = Comment;
-            this.Value = Value;
-            this.Unit = Unit;
-            this.ItemType = ItemType;
-        }
-        */
     }
 }

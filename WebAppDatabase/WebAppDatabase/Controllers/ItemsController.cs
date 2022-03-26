@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using WebAppDatabase.Data;
 using WebAppDatabase.Models;
 
@@ -15,6 +16,7 @@ namespace WebAppDatabase.Controllers
     public class ItemsController : ControllerBase
     {
         private readonly ApplicationContext _context;
+        private readonly ILogger<ItemsController> _logger;
 
         public ItemsController(ApplicationContext context)
         {
@@ -26,6 +28,7 @@ namespace WebAppDatabase.Controllers
         public async Task<ActionResult<IEnumerable<Item>>> GetItems()
         {
             return await _context.Items.ToListAsync();
+            
         }
 
         // GET: api/Items/5
