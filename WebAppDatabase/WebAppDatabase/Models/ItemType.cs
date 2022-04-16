@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebAppDatabase.Models
 {
-    public class ItemsType
+    public class ItemType
     {
         public int Id { get; set; }
         [MaxLength(50)]

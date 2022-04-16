@@ -17,15 +17,15 @@ namespace WebAppDatabase.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Item>().HasOne<ItemsType>(g => g.ItemsType).WithMany(s => s.Items).HasForeignKey(s => s.TypeID);
+ 
+            modelBuilder.Entity<Item>().HasOne<ItemType>(g => g.ItemType).WithMany(s => s.Items).HasForeignKey(s => s.TypeID);
             modelBuilder.Entity<Item>().HasOne<Unit>(g => g.Unit).WithMany(s => s.Items).HasForeignKey(s => s.UnitID);
+            
             modelBuilder.Entity<Item>().HasIndex(m => m.ItemName).IsUnique();
+        } 
 
-        }
-        
         public DbSet<Unit> Unit { get; set; }
-        public DbSet<ItemsType> ItemsType { get; set; }
-        public DbSet<Item> Items { get; set; }
+        public DbSet<ItemType> ItemType { get; set; }
+        public DbSet<Item> Item { get; set; }
     }
 }

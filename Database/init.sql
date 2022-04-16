@@ -1,30 +1,30 @@
 CREATE DATABASE IF NOT EXISTS projektoop;
 USE projektoop;
 
-CREATE TABLE ItemsType(
-    Id INT(6) AUTO_INCREMENT NOT NULL,
-    TypeName varchar(45) NOT NULL UNIQUE,
+CREATE TABLE ItemType(
+    Id INT AUTO_INCREMENT NOT NULL,
+    TypeName varchar(50) NOT NULL UNIQUE,
     PRIMARY KEY(Id)
 );
 
 CREATE TABLE Unit(
-    Id INT(6) AUTO_INCREMENT NOT NULL,
-    UnitName varchar(45) NOT NULL UNIQUE,
+    Id INT AUTO_INCREMENT NOT NULL,
+    UnitName varchar(50) NOT NULL UNIQUE,
     PRIMARY KEY(Id)
 );
 
-CREATE TABLE Items(
+CREATE TABLE Item(
     Id INT NOT NULL AUTO_INCREMENT,
-    ItemName varchar(45) NOT NULL UNIQUE,
+    ItemName varchar(50) NOT NULL UNIQUE,
     Count INT NOT NULL,
-    Value varchar(45) NOT NULL,
+    Value varchar(10) NOT NULL,
     Comment varchar(100),
 
     TypeID INT NOT NULL,
     UnitID INT NOT NULL,
 
-	  PRIMARY KEY(Id),
+	PRIMARY KEY(Id),
 
-    FOREIGN KEY (TypeID) REFERENCES ItemsType(Id),
+    FOREIGN KEY (TypeID) REFERENCES ItemType(Id),
     FOREIGN KEY (UnitID) REFERENCES Unit(Id)
 );

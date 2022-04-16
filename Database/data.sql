@@ -1,6 +1,6 @@
-INSERT INTO ItemsType(TypeName) VALUES ('Rezistor');
-INSERT INTO ItemsType(TypeName) VALUES ('Capacitor');
-INSERT INTO ItemsType(TypeName) VALUES ('Diode');
+INSERT INTO ItemType(TypeName) VALUES ('Rezistor');
+INSERT INTO ItemType(TypeName) VALUES ('Capacitor');
+INSERT INTO ItemType(TypeName) VALUES ('Diode');
 
 
 INSERT INTO Unit(UnitName) VALUES ('Ω');
@@ -10,9 +10,9 @@ INSERT INTO Unit(UnitName) VALUES ('pF');
 INSERT INTO Unit(UnitName) VALUES ('nF');
 INSERT INTO Unit(UnitName) VALUES ('V');
 
-INSERT INTO Items(ItemName, Count, Value, TypeID, UnitID) VALUES ('AZ23C4V7-7-F', 12, '4.7', (SELECT Id FROM ItemsType WHERE TypeName='Diode'), (SELECT Id FROM Unit WHERE UnitName='V'));
-INSERT INTO Items(ItemName, Count, Value, TypeID, UnitID) VALUES ('AZ23C3V3-7-F', 10, '3.3', (SELECT Id FROM ItemsType WHERE TypeName='Diode'), (SELECT Id FROM Unit WHERE UnitName='V'));
-INSERT INTO Items(ItemName, Count, Value, TypeID, UnitID) VALUES ('BZB84-B3V3,215', 56, '3.3', (SELECT Id FROM ItemsType WHERE TypeName='Diode'), (SELECT Id FROM Unit WHERE UnitName='V'));
+INSERT INTO Item(ItemName, Count, Value, TypeID, UnitID) VALUES ('AZ23C4V7-7-F', 12, '4.7', (SELECT Id FROM ItemType WHERE TypeName='Diode'), (SELECT Id FROM Unit WHERE UnitName='V'));
+INSERT INTO Item(ItemName, Count, Value, TypeID, UnitID) VALUES ('AZ23C3V3-7-F', 10, '3.3', (SELECT Id FROM ItemType WHERE TypeName='Diode'), (SELECT Id FROM Unit WHERE UnitName='V'));
+INSERT INTO Item(ItemName, Count, Value, TypeID, UnitID) VALUES ('BZB84-B3V3,215', 56, '3.3', (SELECT Id FROM ItemType WHERE TypeName='Diode'), (SELECT Id FROM Unit WHERE UnitName='V'));
 
 
 

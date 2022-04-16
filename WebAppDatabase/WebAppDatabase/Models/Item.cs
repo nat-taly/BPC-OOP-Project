@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace WebAppDatabase.Models
 {
+    
     public class Item
     {
-        [Key]
         public int Id { get; set; }
 
         [MaxLength(50)]
         [Required]
         public string ItemName { get; set; }
-
         public int Count { get; set; }
 
         [MaxLength(10)]
@@ -23,12 +22,21 @@ namespace WebAppDatabase.Models
 
         [MaxLength(100)]
         public string Comment { get; set; }
-
-
+        
         public int TypeID { get; }
         public int UnitID { get; }
-        public ItemsType ItemsType { get; set; }
+        
+        public ItemType ItemType { get; set; }
         public Unit Unit { get; set; }
+
+        public Item()
+        {
+
+        }
+
+
+
+
 
     }
 }

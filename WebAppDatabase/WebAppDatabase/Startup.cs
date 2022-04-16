@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,8 @@ namespace WebAppDatabase
         {
 
             services.AddControllers();
+            services.AddCors(c => c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAppDatabase", Version = "v1" });
@@ -39,6 +42,11 @@ namespace WebAppDatabase
             {
                 options.UseMySQL(Configuration.GetConnectionString("DBConnection"));
             });
+
+            services.AddControllersWithViews().AddNewtonsoftJson(options 
+                => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
