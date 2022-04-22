@@ -8,8 +8,8 @@ using WebAppDatabase.Data;
 namespace WebAppDatabase.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220409113715_ItemMig")]
-    partial class ItemMig
+    [Migration("20220420114229_initialMigraton")]
+    partial class initialMigraton
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
