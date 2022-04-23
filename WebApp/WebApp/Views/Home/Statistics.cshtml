@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Statistics";
+}
+
+
+@model WebApp.Models.Statistics;
+
+
+
+<div>
+    <a>Sum items in datbase: @Model.Items.Count()</a><br>
+    <a>Sum categories in database: @Model.Types.Count()</a><br><br>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category: </th>
+            <th>Sum items in category:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var type in Model.Types.OrderBy(t => t.TypeName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelType => type.TypeName)
+                </td>
+                <td>
+                    @Model.Items.Where(t => t.TypeID == type.Id).Count()
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

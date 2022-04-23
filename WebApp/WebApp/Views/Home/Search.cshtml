@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WebApp.Models.Item>
+
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+
+<form asp-controller="Home" asp-action="Search" method="get">
+    <p>
+        Category:
+        <input type="text" name="searchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Count
+            </th>
+            <th>
+                Hodnota
+            </th>
+            <th>
+                Type
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Count)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value) @Html.DisplayFor(modelItem => item.Unit.UnitName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type.TypeName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
